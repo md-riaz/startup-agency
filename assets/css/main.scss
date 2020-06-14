@@ -1,0 +1,255 @@
+/* === Fonts === */
+@font-face {
+  font-family: "Libre Caslon Text";
+  src: url("../fonts/Montserrat-Regular.ttf") format("ttf");
+}
+
+/*----- Global Setting -----*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: middle;
+}
+body {
+  transition: all 0.5s ease;
+}
+section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Montserrat";
+}
+
+.bg-blue {
+  background: #2330ce;
+  color: white;
+}
+.bg_wrapper {
+  background: url(../images/header_bg.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.rounded-xl {
+  border-radius: 18px;
+}
+/*----- Typography -----*/
+.text-base {
+  font-family: "Montserrat";
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+/*----- Features Section -----*/
+.features > div {
+  max-width: 340px;
+
+  img {
+    width: 93px;
+  }
+}
+
+/*----- Button -----*/
+
+.btn-rounded {
+  border-radius: 30px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  flex-shrink: 0;
+  &:hover {
+  }
+}
+
+/*----- How Works Section -----*/
+#how_work {
+  .content_inside {
+    display: flex;
+    .icons {
+      height: 41px;
+      width: 41px;
+      background: #eee;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &:hover {
+      .icons {
+        background: #e75b4c;
+        color: #fff;
+        transition: all 0.5s ease;
+      }
+      h4 {
+        font-weight: bold;
+        color: #e75b4c;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+
+  .line,
+  .line-2 {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0.25rem;
+      height: 200%;
+      left: -1.8rem;
+      background: #eee;
+      z-index: -1;
+    }
+  }
+  .line {
+    &::after {
+      top: -23px;
+    }
+  }
+  .line-2 {
+    &::after {
+      bottom: 125%;
+    }
+  }
+
+  .content .icons {
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .feature_list .icon {
+    width: 15px;
+    margin-right: 10px;
+  }
+}
+
+/*----- Benefits section -----*/
+#benefits {
+  .connector-img {
+    top: 26%;
+    left: 50%;
+  }
+
+  .line-1,
+  .line-2,
+  .line-3,
+  .line-4 {
+    position: relative;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      background: #e75b4c;
+    }
+  }
+
+  @mixin lines($h: auto, $w: auto, $r: initial, $l: initial, $t: initial) {
+    height: $h;
+    width: $w;
+    left: $l;
+    right: $r;
+    top: $t;
+  }
+  .line-1 {
+    &::before {
+      @include lines($h: 0.25rem, $w: 55px, $r: -70px, $t: 60px);
+    }
+    &::after {
+      @include lines($h: 75px, $w: 0.25rem, $r: -73px, $t: 60px);
+    }
+  }
+  .line-2 {
+    &::before {
+      @include lines($h: 0.25rem, $w: 55px, $l: -75px, $t: 35px);
+    }
+    &::after {
+      @include lines($h: 100px, $w: 0.25rem, $l: -75px, $t: 35px);
+    }
+  }
+  .line-3 {
+    &::before {
+      @include lines($w: 0.25rem, $h: 65px, $r: 50px, $t: -60px);
+    }
+    &::after {
+      @include lines($w: 89px, $h: 0.25rem, $r: -37px, $t: -60px);
+    }
+  }
+  .line-4 {
+    &::before {
+      @include lines($w: 0.25rem, $h: 65px, $l: 151px, $t: -91px);
+    }
+    &::after {
+      @include lines($w: 175px, $h: 0.25rem, $l: -20px, $t: -95px);
+    }
+  }
+}
+@media screen and (max-width: 1279px) {
+  .line-1,
+  .line-2,
+  .line-3,
+  .line-4 {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+/*----- Testimonial section -----*/
+.testimonial_slide {
+  background: url(../images/testimonial-bg.png);
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  .slide {
+    width: 445px;
+  }
+}
+/*----- Footer section -----*/
+footer {
+  ul li {
+    cursor: pointer;
+    a {
+      margin: 5px 0;
+    }
+  }
+}
+#footer {
+  margin-bottom: 0;
+}
+.footer_left {
+  background: url(../images/footer-bg.png);
+  background-size: contain;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+}
+#search_form {
+  button[type="submit"] {
+    right: 3px;
+    background: #e75b4c;
+    &:hover {
+      background: #e75b4c;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer_left {
+    background-size: cover;
+  }
+}

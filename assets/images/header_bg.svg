@@ -1,0 +1,44 @@
+<svg id="bg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1135.97" viewBox="0 0 1920 1135.97">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e75b4c;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #e0483d;
+      }
+
+      .cls-2 {
+        filter: url(#filter);
+      }
+
+      .cls-3 {
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="-258.813" y="421.281" width="861.032" height="714.689" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="11.533" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.08"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="38"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="1584.13" y="28.063" width="772.4" height="829.032" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="11.533" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.08"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="38"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="bg-2" data-name="bg" class="cls-1" d="M0,0H1920V900s-411.51-99-741,7C666.668,1071.82,0,900,0,900V0Z"/>
+  <path class="cls-2" d="M228.909,580C416.056,767.628,378.158,636.517,496.9,634.235s130.7,281.189,67.7,338.453S472.347,949.25,403.74,1090.12s-372.56-87.88-372.56-87.88L-258.8,740.94S-204.506,145.471,228.909,580Z"/>
+  <path id="Shape_4_copy_2" data-name="Shape 4 copy 2" class="cls-3" d="M1847.11,581.535c-87.74-250.118-110.2-115.444-218.28-164.657s3.6-310.166,85.16-334.636,73.07,60.982,195.81-36.506S2207.86,285.9,2207.86,285.9l148.66,361S2050.3,1160.78,1847.11,581.535Z"/>
+</svg>

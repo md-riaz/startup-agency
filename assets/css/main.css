@@ -1,0 +1,249 @@
+/* === Fonts === */
+@font-face {
+  font-family: "Libre Caslon Text";
+  src: url("../fonts/Montserrat-Regular.ttf") format("ttf"); }
+
+/*----- Global Setting -----*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: middle; }
+
+body {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Montserrat"; }
+
+.bg-blue {
+  background: #2330ce;
+  color: white; }
+
+.bg_wrapper {
+  background: url(../images/header_bg.svg);
+  background-position: top;
+  background-repeat: no-repeat; }
+
+.rounded-xl {
+  border-radius: 18px; }
+
+/*----- Typography -----*/
+.text-base {
+  font-family: "Montserrat";
+  font-size: 0.875rem;
+  font-weight: 300; }
+
+/*----- Features Section -----*/
+.features > div {
+  max-width: 340px; }
+  .features > div img {
+    width: 93px; }
+
+/*----- Button -----*/
+.btn-rounded {
+  border-radius: 30px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
+
+/*----- How Works Section -----*/
+#how_work .content_inside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  #how_work .content_inside .icons {
+    height: 41px;
+    width: 41px;
+    background: #eee;
+    border-radius: 50%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  #how_work .content_inside:hover .icons {
+    background: #e75b4c;
+    color: #fff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+  #how_work .content_inside:hover h4 {
+    font-weight: bold;
+    color: #e75b4c;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+
+#how_work .line,
+#how_work .line-2 {
+  position: relative; }
+  #how_work .line::after,
+  #how_work .line-2::after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    height: 200%;
+    left: -1.8rem;
+    background: #eee;
+    z-index: -1; }
+
+#how_work .line::after {
+  top: -23px; }
+
+#how_work .line-2::after {
+  bottom: 125%; }
+
+#how_work .content .icons svg {
+  width: 18px;
+  height: 18px; }
+
+#how_work .feature_list .icon {
+  width: 15px;
+  margin-right: 10px; }
+
+/*----- Benefits section -----*/
+#benefits .connector-img {
+  top: 26%;
+  left: 50%; }
+
+#benefits .line-1,
+#benefits .line-2,
+#benefits .line-3,
+#benefits .line-4 {
+  position: relative; }
+  #benefits .line-1::before, #benefits .line-1::after,
+  #benefits .line-2::before,
+  #benefits .line-2::after,
+  #benefits .line-3::before,
+  #benefits .line-3::after,
+  #benefits .line-4::before,
+  #benefits .line-4::after {
+    position: absolute;
+    content: "";
+    background: #e75b4c; }
+
+#benefits .line-1::before {
+  height: 0.25rem;
+  width: 55px;
+  left: initial;
+  right: -70px;
+  top: 60px; }
+
+#benefits .line-1::after {
+  height: 75px;
+  width: 0.25rem;
+  left: initial;
+  right: -73px;
+  top: 60px; }
+
+#benefits .line-2::before {
+  height: 0.25rem;
+  width: 55px;
+  left: -75px;
+  right: initial;
+  top: 35px; }
+
+#benefits .line-2::after {
+  height: 100px;
+  width: 0.25rem;
+  left: -75px;
+  right: initial;
+  top: 35px; }
+
+#benefits .line-3::before {
+  height: 65px;
+  width: 0.25rem;
+  left: initial;
+  right: 50px;
+  top: -60px; }
+
+#benefits .line-3::after {
+  height: 0.25rem;
+  width: 89px;
+  left: initial;
+  right: -37px;
+  top: -60px; }
+
+#benefits .line-4::before {
+  height: 65px;
+  width: 0.25rem;
+  left: 151px;
+  right: initial;
+  top: -91px; }
+
+#benefits .line-4::after {
+  height: 0.25rem;
+  width: 175px;
+  left: -20px;
+  right: initial;
+  top: -95px; }
+
+@media screen and (max-width: 1279px) {
+  .line-1::before, .line-1::after,
+  .line-2::before,
+  .line-2::after,
+  .line-3::before,
+  .line-3::after,
+  .line-4::before,
+  .line-4::after {
+    display: none; } }
+
+/*----- Testimonial section -----*/
+.testimonial_slide {
+  background: url(../images/testimonial-bg.png);
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat; }
+  .testimonial_slide .slide {
+    width: 445px; }
+
+/*----- Footer section -----*/
+footer ul li {
+  cursor: pointer; }
+  footer ul li a {
+    margin: 5px 0; }
+
+#footer {
+  margin-bottom: 0; }
+
+.footer_left {
+  background: url(../images/footer-bg.png);
+  background-size: contain;
+  background-position: left bottom;
+  background-repeat: no-repeat; }
+
+#search_form button[type="submit"] {
+  right: 3px;
+  background: #e75b4c; }
+  #search_form button[type="submit"]:hover {
+    background: #e75b4c; }
+
+@media screen and (max-width: 640px) {
+  .footer_left {
+    background-size: cover; } }
+/*# sourceMappingURL=main.css.map */
