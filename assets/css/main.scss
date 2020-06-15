@@ -1,3 +1,11 @@
+@mixin lines($h: auto, $w: auto, $r: initial, $l: initial, $t: initial) {
+  height: $h;
+  width: $w;
+  left: $l;
+  right: $r;
+  top: $t;
+}
+
 /* === Fonts === */
 @font-face {
   font-family: "Libre Caslon Text";
@@ -15,6 +23,13 @@
   border: 0;
   outline: 0;
   vertical-align: middle;
+}
+
+:root {
+  --clr-red: #e75b4c;
+  --clr-blue: #2330ce;
+  --clr-white: white;
+  --clr-gray: #eee;
 }
 body {
   transition: all 0.5s ease;
@@ -34,10 +49,18 @@ h6,
 p {
   font-family: "Montserrat";
 }
-
+.bg-red {
+  background-color: var(--clr-red);
+}
 .bg-blue {
-  background: #2330ce;
-  color: white;
+  background: var(--clr-blue);
+  color: var(--clr-white);
+}
+.hover-bg-blue {
+  &:hover {
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+  }
 }
 .bg_wrapper {
   background: url(../images/header_bg.svg);
@@ -53,9 +76,103 @@ p {
   font-size: 0.875rem;
   font-weight: 300;
 }
-/*----- Features Section -----*/
-.features > div {
+// nav hover animation
+nav {
+  overflow: hidden;
+  a {
+    text-transform: uppercase;
+    &.active {
+      color: var(--clr-red);
+    }
+    position: relative;
+    &::before {
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      background-color: var(--clr-white);
+      width: 100%;
+      height: 100%;
+      transform: translateX(100px);
+      opacity: 0;
+      z-index: -999;
+    }
+    &:hover,
+    &.active {
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// burger menu
+.menu {
+  position: relative;
+  background-color: var(--clr-white);
+  height: 3px;
+  width: 25px;
+  border-radius: 25%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 30px;
+    background-color: var(--clr-white);
+    right: 0;
+    border-radius: 25%;
+    transition: all 0.5s ease;
+  }
+  &::before {
+    top: -10px;
+  }
+  &::after {
+    top: 10px;
+  }
+}
+
+header {
+  &.open {
+    .menu {
+      width: 0;
+      z-index: 1;
+      &::before {
+        transform: translatey(10px) rotate(-45deg);
+      }
+      &::after {
+        transform: translatey(-10px) rotate(45deg);
+      }
+    }
+    nav {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 5rem;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    width: 0%;
+    transition: all 0.5s ease;
+    background-color: var(--clr-red);
+  }
+}
+
+/*----- Services Section -----*/
+.services > div {
   max-width: 340px;
+  &:hover {
+    transition: all 0.2s ease;
+    transform: scale(1.03);
+  }
 
   img {
     width: 93px;
@@ -90,13 +207,13 @@ p {
     }
     &:hover {
       .icons {
-        background: #e75b4c;
-        color: #fff;
+        background: var(--clr-red);
+        color: var(--clr-white);
         transition: all 0.5s ease;
       }
       h4 {
         font-weight: bold;
-        color: #e75b4c;
+        color: var(--clr-red);
         transition: all 0.5s ease;
       }
     }
@@ -134,7 +251,24 @@ p {
   }
   .feature_list .icon {
     width: 15px;
+    height: 15px;
     margin-right: 10px;
+  }
+}
+
+/*----- Price Plan section -----*/
+
+#price_plan {
+  .icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+  }
+  .price_cards > div {
+    &:hover {
+      transition: all 0.2s ease;
+      transform: scale(1.03);
+    }
   }
 }
 
@@ -154,17 +288,10 @@ p {
     &::after {
       position: absolute;
       content: "";
-      background: #e75b4c;
+      background: var(--clr-red);
     }
   }
 
-  @mixin lines($h: auto, $w: auto, $r: initial, $l: initial, $t: initial) {
-    height: $h;
-    width: $w;
-    left: $l;
-    right: $r;
-    top: $t;
-  }
   .line-1 {
     &::before {
       @include lines($h: 0.25rem, $w: 55px, $r: -70px, $t: 60px);
@@ -216,10 +343,6 @@ p {
   background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;
-
-  .slide {
-    width: 445px;
-  }
 }
 /*----- Footer section -----*/
 footer {
@@ -242,14 +365,67 @@ footer {
 #search_form {
   button[type="submit"] {
     right: 3px;
-    background: #e75b4c;
+    background: var(--clr-red);
     &:hover {
-      background: #e75b4c;
+      background: darken($color: #e75b4c, $amount: 10);
     }
   }
 }
 @media screen and (max-width: 640px) {
   .footer_left {
     background-size: cover;
+  }
+}
+
+/***** Rocket animation *****/
+.fly_animate {
+  animation: fly_animate 2s ease-in-out 1s infinite alternate forwards;
+}
+@keyframes fly_animate {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/***** Rotate animation *****/
+.rotate_animate {
+  animation: rotate_animate 3s ease-in-out 1s infinite alternate forwards;
+}
+@keyframes rotate_animate {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+// page loading animation
+.loader {
+  transition: 1s all ease-in-out;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url(../images/loader_rocket.svg);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  z-index: 9999999999999;
+  background-size: 30%;
+  background-position: center center;
+
+  &.end {
+    position: absolute;
+    transform: translateY(-100%);
   }
 }
