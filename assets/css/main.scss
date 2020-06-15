@@ -14,6 +14,26 @@
 
 /*----- Global Setting -----*/
 
+// page loading animation
+.loader {
+  transition: 1s all ease-in-out;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url(../images/loader_rocket.svg);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  z-index: 9999999999999;
+  background-size: 30%;
+  background-position: center center;
+
+  &.end {
+    position: absolute;
+    transform: translateY(-100%);
+  }
+}
 *,
 *::before,
 *::after {
@@ -404,26 +424,5 @@ footer {
   }
   100% {
     transform: scale(1.1);
-  }
-}
-
-// page loading animation
-.loader {
-  transition: 1s all ease-in-out;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-image: url(../images/loader_rocket.svg);
-  background-color: #fff;
-  background-repeat: no-repeat;
-  z-index: 9999999999999;
-  background-size: 30%;
-  background-position: center center;
-
-  &.end {
-    position: absolute;
-    transform: translateY(-100%);
   }
 }

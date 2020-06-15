@@ -4,6 +4,25 @@
   src: url("../fonts/Montserrat-Regular.ttf") format("ttf"); }
 
 /*----- Global Setting -----*/
+.loader {
+  -webkit-transition: 1s all ease-in-out;
+  transition: 1s all ease-in-out;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url(../images/loader_rocket.svg);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  z-index: 9999999999999;
+  background-size: 30%;
+  background-position: center center; }
+  .loader.end {
+    position: absolute;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+
 *,
 *::before,
 *::after {
@@ -409,23 +428,4 @@ footer ul li {
   100% {
     -webkit-transform: scale(1.1);
             transform: scale(1.1); } }
-
-.loader {
-  -webkit-transition: 1s all ease-in-out;
-  transition: 1s all ease-in-out;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-image: url(../images/loader_rocket.svg);
-  background-color: #fff;
-  background-repeat: no-repeat;
-  z-index: 9999999999999;
-  background-size: 30%;
-  background-position: center center; }
-  .loader.end {
-    position: absolute;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%); }
 /*# sourceMappingURL=main.css.map */
