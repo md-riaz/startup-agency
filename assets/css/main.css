@@ -34,6 +34,9 @@
   outline: 0;
   vertical-align: middle; }
 
+html {
+  scroll-behavior: smooth; }
+
 :root {
   --clr-red: #e75b4c;
   --clr-blue: #2330ce;
@@ -48,7 +51,11 @@ section {
   margin-top: 5rem;
   margin-bottom: 5rem;
   padding-left: 20px;
-  padding-right: 20px; }
+  padding-right: 20px;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory; }
+  section > * {
+    scroll-snap-align: start; }
 
 h1,
 h2,
@@ -91,7 +98,7 @@ nav {
     position: relative; }
     nav a.active {
       color: var(--clr-red); }
-    nav a::before {
+    nav a::after {
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
       position: absolute;
@@ -105,7 +112,7 @@ nav {
               transform: translateX(100px);
       opacity: 0;
       z-index: -999; }
-    nav a:hover::before, nav a.active::before {
+    nav a:hover::after, nav a.active::after {
       -webkit-transform: translateX(0);
               transform: translateX(0);
       opacity: 1; }
@@ -162,7 +169,10 @@ header.open nav {
     width: 0%;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    background-color: var(--clr-red); } }
+    background-color: var(--clr-red); }
+    nav a:hover, nav a.active {
+      color: var(--clr-white);
+      font-weight: bold; } }
 
 /*----- Services Section -----*/
 .services > div {
@@ -374,6 +384,25 @@ footer ul li {
 @media screen and (max-width: 640px) {
   .footer_left {
     background-size: cover; } }
+
+.scrollToTop {
+  opacity: 0;
+  height: 30px;
+  width: 30px;
+  bottom: 30px;
+  right: 20px;
+  background-color: var(--clr-red);
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  stroke: white; }
+  .scrollToTop.slideUp {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
 
 /***** Rocket animation *****/
 .fly_animate {

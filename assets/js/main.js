@@ -3,7 +3,7 @@ window.onload = (e) => {
   const menubtn = document.querySelector(".menu");
   const header = document.querySelector("header");
   const mainNavLinks = document.querySelectorAll("nav a");
-  const scrollToTopBtn = document.querySelectorAll(".scrollToTopBtn");
+  const scrollToTopBtn = document.querySelector(".scrollToTop");
   const loader = document.querySelector(".loader");
 
   // Remove loader
@@ -14,9 +14,9 @@ window.onload = (e) => {
   menubtn.addEventListener("click", (e) => {
     header.classList.toggle("open");
   });
-  menubtn.addEventListener("mouseleave", (e) => {
-    header.classList.remove("open");
-  });
+  // menubtn.addEventListener("mouseleave", (e) => {
+  //   header.classList.remove("open");
+  // });
 
   // Glide Slider
   var glide = new Glide(".glide", {
@@ -51,6 +51,7 @@ window.onload = (e) => {
   let cur = [];
 
   window.addEventListener("scroll", (event) => {
+    scrollFunction();
     let fromTop = window.scrollY + 300;
 
     mainNavLinks.forEach((link) => {
@@ -72,4 +73,15 @@ window.onload = (e) => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 200 ||
+      document.documentElement.scrollTop > 200
+    ) {
+      scrollToTopBtn.classList.add("slideUp");
+    } else {
+      scrollToTopBtn.classList.remove("slideUp");
+    }
+  }
 };
